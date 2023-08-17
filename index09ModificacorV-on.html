@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+
+    <title>Document</title>
+    <style>
+        .verde{
+            background-color: green;
+        }
+        .vermelho{
+            background-color: red;
+        }
+        .azul{
+            background-color: blue;
+        }
+        .borda{
+            border:2px solid
+        }
+
+        .div-principal{
+            width: 200px;
+            height: 200px;
+        }
+        
+        .div-comum{
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <a href="http://jorgesantana.net.br"
+        target="_blank"
+        v-on:click.prevent="previnirComportamentoPadrao($event)"
+        >
+        Link<br>
+        </a>
+        Mensagem: {{msg}}
+        <hr>
+        <button @click.once="executarUmaVez()">Butão</button>
+        <p>Cliques: {{cliques}}</p>
+        <hr>
+        <form @submit.prevent="prevenirUmaVez()">
+            <button type="submit">Enviar</button>
+        </form>
+        <p>Formulário: {{formulario}}</p>
+        <hr>
+        <input type="text" @keyup.Shift.Enter="capturandoTeclas ($event)">
+        <p>Teclas: {{teclas}}</p>
+    </div>
+</body>
+<script>
+
+    const vm = new Vue({
+        el: '#app',
+        data:{
+            msg: '',
+            cliques: 0,
+            formulario:'',
+            teclas:''
+
+        },
+        methods: {
+            previnirComportamentoPadrao(){
+                this.msg = 'Comportamento padrão ativado'
+            },
+            executarUmaVez(){
+                this.cliques++
+            },
+            prevenirUmaVez(){
+                this.formulario = 'Previnindo o comportamento padrão'
+            } ,
+            capturandoTeclas(event){
+                this.teclas = 'Modificadores teclados'
+            }
+
+        }
+     
+
+    })
+
+</script>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+
+    <title>Document</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="text" id="inputTexto" >
+        <br>
+        <select id="opcoes">
+            <option value="A">Opcçao 1</option>
+            <option value="B">Opcçao 2</option>
+            <option value="C">Opcçao 3</option>
+        </select>
+        <br>
+        <p id="paragrafo" style="color:green">Parágrafo</p>
+        <div id="bloco">Conteudo interno da div</div>
+        <br>
+        <button @click="selecionarElementoFilho()">Botão</button>
+      
+    </div>
+</body>
+
+<script>
+
+    const vm = new Vue({
+        el: '#app',
+        data:{
+
+        },
+        methods: {
+            selecionarElementoFilho(){
+                console.log(inputTexto.value)
+                console.log(opcoes.value)
+                console.log(paragrafo.style.color)
+                console.log(bloco.innerHTML)
+                
+            }
+        }
+   
+    })
+
+</script>
+
+</html>

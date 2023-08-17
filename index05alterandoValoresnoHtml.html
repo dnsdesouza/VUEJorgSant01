@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+
+    <title>Document</title>
+    <style>
+        .verde{
+            color: green;
+        }
+        .negrito{
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+      <a :href="site" >Site do Google</a>     <!--     //FORMA MAIS ENXUTA -->
+       <p class="negrito" :class="cor" >Entendendo a diretiva v-bind</p>  <!-- //FORMA MAIS ENXUTA -->
+        <input type="text" v-bind:placeholder="instrucaoDePreenchimento" v-bind:value="valor">
+        <input type="checkbox" v-bind:checked="check">
+    </div>
+</body>
+<script>
+
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            site: 'http://google.com.br',
+            cor: 'verde',
+            instrucaoDePreenchimento: 'Placeholde - Diretiva v-bind',
+            valor: 'Entendendo a diretiva v-bind',
+            check: true
+         },
+        methods:{  
+        }
+
+    })
+
+
+</script>
+
+</html>
